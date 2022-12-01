@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio - Moleza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="script.js" async="async"></script>
+</head>
+
+<body>
+    <div class="modal fade" id="modalLogin" aria-labelledby="modalLogin" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <section class="container content-section" id="baixo">
+                    <center>
+                        <h2 class="section-header">CARRINHO</h2>
+                    </center>
+                    <br></br><br><br>
+                    <div class="cart-row">
+                        <span class="cart-item cart-header cart-column">ITEM</span>
+                        <span class="cart-price cart-header cart-column">PREÇO</span>
+                        <span class="cart-quantity cart-header cart-column">QUANTIDADE</span>
+                    </div>
+                    <div class="cart-items"></div>
+                    <div class="cart-total">
+                        <br><br><br><br><br>
+                        <center>
+                            <strong class="cart-total-title">TOTAL</strong>
+                            <span class="cart-total-price">R$0.00</span>
+                        </center>
+                    </div>
+                    <button class="btn btn-primary btn-purchase" type="button" data-bs-toggle="modal"
+                        data-bs-target="#mod">COMPRAR</button>
+
+                    <button id="clear" class="btn btn-primary btn-clear" type="button" data-bs-toggle="modal"
+                        data-bs-target="#conf">LIMPAR</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modals" aria-labelledby="modals" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <section class="container content-section" id="alto">
+                    <center>
+                        <br>
+                        <h2 class="section-header">PRODUTO ADICIONADO AO CARRINHO</h2>
+                        <br>
+                        <div class="downArrow bounce">
+                            <a href="#"></a>
+                            <img width="40" height="40" alt="" src="images/cr.png" />
+                        </div>
+                    </center>
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mod" aria-labelledby="mod" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <section class="container content-section" id="medio">
+                    <center>
+                        <br>
+                        <h2 class="section-header">COMPRA EFETUADA COM SUCESSO</h2>
+                        <br>
+                        <div class="downArrow bounce">
+                            <img width="40" height="40" alt="" src="images/verificar.png" />
+                        </div>
+                    </center>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="conf" aria-labelledby="conf" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <section class="container content-section" id="baixo">
+                    <center>
+                        <br>
+                        <h2 class="section-header">CARRINHO LIMPO COM SUCESSO</h2>
+                        <br>
+                        <div class="downArrow bounce">
+                            <img width="40" height="40" alt="" src="images/vassoura.png" />
+                        </div>
+                    </center>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+
+        <a id="menu-btn" class="icon-food" href="#" role="button"></a>
+
+        <div></div>
+
+        <nav class="navbar">
+            <a href="index.html">Início</a>
+            <a href="cardapio.html">Cardápio</a>
+            <span class="space"></span>
+            <a href="sobre.html">Sobre</a>
+            <a href="feedback.php">Feedback</a>
+        </nav>
+
+        <a class="fas fa-shopping-cart icons" id="loginLink" aria-current="page" data-bs-toggle="modal"
+            data-bs-target="#modalLogin" href="#"></a>
+
+        <a href="index.html" class="logo"><img src="images/Moleza_sem_fundo.png" alt=""></a>
+    </header>
+
+    <section class="home" id="home">
+        <div class="content">
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="heading">
+            <h3>nossos hambúrgueres</h3>
+        </div>
+
+        <div class="box-container">
+            <div class="box" data-aos="fade" data-aos-delay="100">
+                <img class="item-image" src="images/hamburgueres/hamburguer.jpg" alt="">
+                <br>
+                <br>
+                <div class="content">
+                    <h3 class="item-title" name="hamburguer">hambúrguer</h3>
+                    <h4 class="item-subtitle">Pão e Carne</h4>
+                    <div class="price" id="produtos">R$ 7.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="200">
+                <img class="item-image" src="images/hamburgueres/x- burguer.jpg" alt="">
+                <br>
+                <br>
+                <div class="content">
+                    <h3 class="item-title">x-burguer</h3>
+                    <h4 class="item-subtitle">Pão, Carne, Queijo prato</h4>
+                    <div class="price">R$ 9.50</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="300">
+                <img class="item-image" src="images/hamburgueres/x-maionese.jpg" alt="">
+                <br>
+                <br>
+                <div class="content">
+                    <h3 class="item-title">x-maionese</h3>
+                    <h4 class="item-subtitle">Pão, Carne, Queijo prato, Maionese</h4>
+                    <div class="price">R$ 9.50</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="400">
+                <img class="item-image" src="images/hamburgueres/x-salada.jpg" alt="">
+                <br>
+                <br>
+                <div class="content">
+                    <h3 class="item-title">x-salada</h3>
+                    <h4 class="item-subtitle">Pão, Carne, Queijo prato, Maionese, Alface, Tomate</h4>
+                    <div class="price">R$ 10.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="500">
+                <img class="item-image" src="images/hamburgueres/x-egg.jpg" alt="">
+                <br>
+                <br>
+                <div class="content">
+                    <h3 class="item-title">x-egg</h3>
+                    <h4 class="item-subtitle">Pão, Carne, Queijo prato, Maionese, Alface, Tomate, Ovo</h4>
+                    <div class="price">R$ 12.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="600">
+                <img class="item-image" src="images/hamburgueres/x-bacon.jpg" alt="">
+                <br>
+                <br>
+                <div class="content">
+                    <h3 class="item-title">x-bacon</h3>
+                    <h4 class="item-subtitle">Pão, Carne, Queijo prato, Maionese, Alface, Tomate, Bacon</h4>
+                    <div class="price">R$ 13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="700">
+                <img class="item-image" src="images/hamburgueres/x-tudo.jpg" alt="">
+                <br>
+                <br>
+                <div class="content">
+                    <h3 class="item-title">x-tudo</h3>
+                    <h4 class="item-subtitle">Pão, Carne, Queijo prato, Maionese, Alface, Tomate, Ovo, Bacon, Presunto
+                    </h4>
+                    <div class="price">R$ 18.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="heading">
+
+            <h3 class="item-title">nossos beirutes</h3>
+        </div>
+
+        <div class="box-container">
+            <div class="box" data-aos="fade" data-aos-delay="150">
+                <img class="item-image" src="images/beirutes/beirute-veg.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">vegetariano</h3>
+                    <h4 class="item-subtitle">Mussarela, Cenoura, Milho, Tomate, Alface, Maionese</h4>
+                    <div class="price">R$12.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="300">
+                <img class="item-image" src="images/beirutes/beirute-tradicional.jfif" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">tradicional</h3>
+                    <h4 class="item-subtitle">Pão, Carne, Queijo prato, Maionese, Alface, Tomate, Bacon</h4>
+                    <div class="price">R$18.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="450">
+                <img class="item-image" src="images/beirutes/beirute-fm.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">frango magro</h3>
+                    <h4 class="item-subtitle">Mussarela, Cenoura, Milho, Tomate, Alface, Maionese</h4>
+                    <div class="price">R$18.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="600">
+                <img class="item-image" src="images/beirutes/beirute-moda.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">à moda da casa</h3>
+                    <h4 class="item-subtitle">Mussarela, Cenoura, Milho, Tomate, Alface, Maionese</h4>
+                    <div class="price">R$18.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="750">
+                <img class="item-image" src="images/beirutes/beirute-peru.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">peru</h3>
+                    <h4 class="item-subtitle">Mussarela, Cenoura, Milho, Tomate, Alface, Maionese</h4>
+                    <div class="price">R$18.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/beirutes/beirute-fg.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">frango gordo</h3>
+                    <h4 class="item-subtitle">Mussarela, Cenoura, Milho, Tomate, Alface, Maionese</h4>
+                    <div class="price">R$23.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="heading">
+
+            <h3>nossos saladões</h3>
+        </div>
+
+        <div class="box-container">
+            <div class="box" data-aos="fade" data-aos-delay="150">
+                <img src="images/saladoes/saladao-frango.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">frango</h3>
+                    <h4 class="item-subtitle">Frango desfiado, Queijo Branco, Milho, Cenoura, Tomate, Alface</h4>
+                    <div class="price">R$11.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="300">
+                <img class="item-image" src="images/saladoes/saladao-peru.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">peru</h3>
+                    <h4 class="item-subtitle">Peito de Peru, Queijo Branco, Milho, Cenoura, Tomate, Alface</h4>
+                    <div class="price">R$11.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="450">
+                <img class="item-image" src="images/saladoes/saladao-vegetariano.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">vegetariano</h3>
+                    <h4 class="item-subtitle">Mussarela, Queijo Branco, Milho, Cenoura, Tomate, Alface</h4>
+                    <div class="price">R$11.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+
+        <div class="heading">
+
+            <h3 class="item-title">nossos lanches naturais</h3>
+        </div>
+
+        <div class="box-container">
+
+            <div class="box" data-aos="fade" data-aos-delay="150">
+                <img class="item-image" src="images/lanches naturais/n1.jfif" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">N°1</h3>
+                    <h4 class="item-subtitle">Peito de Peru, Cenoura, Alface</h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="300">
+                <img class="item-image" src="images/lanches naturais/n2.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">N°2</h3>
+                    <h4 class="item-subtitle">Salpicão de Frango, Cenoura, Alface</h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="450">
+                <img class="item-image" src="images/lanches naturais/n3.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">N°3</h3>
+                    <h4 class="item-subtitle">Salame, Mussarela, Queijo Prato</h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="600">
+                <img class="item-image" src="images/lanches naturais/n4.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">N°4</h3>
+                    <h4 class="item-subtitle">Provolone, Copa, Presunto, Alface, Tomate</h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="750">
+                <img class="item-image" src="images/lanches naturais/n5.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">N°5</h3>
+                    <h4 class="item-subtitle">Mussarela, Copa, Presunto, Alface, Tomate</h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/lanches naturais/n6.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">N°6</h3>
+                    <h4 class="item-subtitle">Peito de Peru, Milho, Alface, Cenoura</h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/lanches naturais/n7.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">N°7</h3>
+                    <h4 class="item-subtitle">Peito de Peru, Queijo Branco, Tomate, Orégano</h4>
+                    <div class="price">R$14.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/lanches naturais/n8.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">N°8</h3>
+                    <h4 class="item-subtitle">Frango Desfiado, Mussarela, Alface</h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="heading">
+            <h3>
+                <i class="fa fa-star"></i> nossos pães integrais / baguetes</i>
+            </h3>
+        </div>
+
+        <div class="box-container">
+            <div class="box" data-aos="fade" data-aos-delay="150">
+                <img class="item-image" src="images/misto.png" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">misto</h3>
+                    <h4 class="item-subtitle">Queijo Prato e Presunto</h4>
+                    <div class="price">R$11.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="300">
+                <img class="item-image" src="images/paes-e-baguetes/queijo-quente.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">queijo quente</h3>
+                    <h4 class="item-subtitle">Queijo Prato</h4>
+                    <div class="price">R$11.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="450">
+                <img class="item-image" src="images/paes-e-baguetes/bauru.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">bauru</h3>
+                    <h4 class="item-subtitle">Queijo Prato, Presunto e Tomate</h4>
+                    <div class="price">R$12.50</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="600">
+                <img class="item-image" src="images/paes-e-baguetes/americano.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">americano</h3>
+                    <h4 class="item-subtitle">Queijo Prato, Presunto, Tomate, Alface e Ovo</h4>
+                    <div class="price">R$13.50</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="750">
+                <img class="item-image" src="images/paes-e-baguetes/queijo-branco-quente.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">quejo branco quente</h3>
+                    <h4 class="item-subtitle">Queijo Branco, Tomate e Orégano</h4>
+                    <div class="price">R$11.50</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/paes-e-baguetes/dogao.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">dogão</h3>
+                    <h4 class="item-subtitle">Salsicha, Maionese, Milho, Batata Palha, Vinagrete, Cheddar e Requeijão
+                    </h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/paes-e-baguetes/omelete.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">omelete</h3>
+                    <h4 class="item-subtitle">Queijo, Presunto, Ovo (2), Bacon, Tomate e Alface</h4>
+                    <div class="price">R$13.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/paes-e-baguetes/baguete.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">baguetes</h3>
+                    <h4 class="item-subtitle">Calabresa, Frango, Presunto e Queijo</h4>
+                    <div class="price">R$8.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="heading">
+
+            <h3>nossos sucos</h3>
+            <br>
+            <h4 class="item-subtitle2">PODEM SER BATIDOS COM ÁGUA / LEITE / DOIS SABORES</h4>
+            <br>
+        </div>
+
+        <div class="box-container">
+            <div class="box" data-aos="fade" data-aos-delay="150">
+                <img class="item-image" src="images/sucos/suco de laranja.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">suco de laranja</h3>
+                    <div class="price">R$6.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="300">
+                <img class="item-image" src="images/sucos/suco de mamao.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">suco de mamão</h3>
+                    <div class="price">R$6.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="450">
+                <img class="item-image" src="images/sucos/suco de limao.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">suco de limão</h3>
+                    <div class="price">R$6.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="600">
+                <img class="item-image" src="images/sucos/suco de manga.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">suco de manga</h3>
+                    <div class="price">R$6.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="750">
+                <img class="item-image" src="images/sucos/suco de abacaxi.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">suco de abacaxi</h3>
+                    <div class="price">R$6.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/sucos/suco de acerola.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">suco de acerola</h3>
+                    <div class="price">R$6.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/sucos/suco de maracuja.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">suco de maracujá</h3>
+                    <div class="price">R$6.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="box" data-aos="fade" data-aos-delay="900">
+                <img class="item-image" src="images/sucos/suco de acai.jpg" alt="">
+                <div class="content">
+                    <br>
+                    <h3 class="item-title">suco de açaí</h3>
+                    <div class="price">R$8.00</div>
+                    <a class="btn" data-bs-toggle="modal" data-bs-target="#modals">adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="links">
+            <a href="index.html" class="btn">início</a>
+            <a href="cardapio.html" class="btn">cardápio</a>
+            <a href="sobre.html" class="btn">sobre</a>
+            <a href="feedback.php" class="btn">feedback</a>
+            <br>
+            <p class="copy">Imagens meramente ilustrativas e sem fins lucrativos.</p>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        AOS.init({ duration: 800 });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
